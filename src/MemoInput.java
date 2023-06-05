@@ -11,6 +11,7 @@ public class MemoInput {
     public MemoInput(){
         memos = new ArrayList<>();
         contentNumber = 0;
+
     }
     public void input() {
         Scanner sc = new Scanner(System.in);
@@ -29,10 +30,12 @@ public class MemoInput {
 
         LocalDateTime localDateTime = LocalDateTime.now();
 
+
         memos.add(new Memo(++contentNumber, name, title, memoContent, passWord, localDateTime));
     }
 
     public List<Memo> getMemos() {
+
         return memos;
     }
 }
