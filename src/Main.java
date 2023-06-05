@@ -59,6 +59,10 @@ public class Main {
     //메모 내용 출력
     private static void memoListPrint(MemoInput memoInput) {
         Scanner sc = new Scanner(System.in);
+
+        //시간별 정렬
+        Collections.sort(memoInput.getMemos() , new MemoInput());
+
         for(int i = 0; i<memoInput.getMemos().size(); i++){
             //시간데이터 변경
             String localDateTimeFormat
