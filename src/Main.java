@@ -12,6 +12,7 @@ public class Main {
     }
 
     public static void print(MemoInput memoInput){
+        // 주석만 추가
         System.out.println("[메모장]");
         System.out.println("1. 입력");
         System.out.println("2. 목록 보기");
