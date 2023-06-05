@@ -68,7 +68,10 @@ public class Main {
             //메모 내용 출력
             System.out.println(memoInput.getMemos().get(i).contentNumber+". "+" " + memoInput.getMemos().get(i).name+" "+ memoInput.getMemos().get(i).title+" "+memoInput.getMemos().get(i).memoContent +" "+localDateTimeFormat);
         }
-
+        if(memoInput.getMemos().size() == 0){
+            System.out.println("메모장이 비어있습니다.");
+            print(memoInput);
+        }
         System.out.println("1. 돌아가기 2. 수정하기");
         if(sc.nextInt() == 1){
             //메인화면
