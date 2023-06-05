@@ -2,7 +2,8 @@ package src;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Collections;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -43,6 +44,8 @@ public class Main {
                 choiceMemo(memoInput);
                 break;
             case 4:
+                // 삭제
+                delete(memoInput);
             case 5:
                 exitNotepad();
                 break;
@@ -135,4 +138,38 @@ public class Main {
 
         }
     }
+
+    public static void delete(MemoInput memoInput) {
+        System.out.println("삭제");
+        System.out.println("삭제할 게시글 번호를 입력해주세요.");
+
+        // 스캐너 설정
+        Scanner sc = new Scanner(System.in);
+        String str0 = sc.nextLine();
+        int boardNum = Integer.parseInt(str0); // 삭제 번호
+
+        // 메모를 리스트로 변환
+        List memoList = memoInput.getMemos();
+
+        // 삭제할 번호를 받기
+        for (int i = 0; i < memoList.size(); i++) {
+            Memo memo = (Memo) memoList.get(i);
+            if (memo.contentNumber == boardNum) {
+
+                // 삭제할 비밀번호를 받기
+                System.out.println("비밀번호를 입력해주세요.");
+                int num1 = sc.nextInt();
+                if (memo.passWord == num1) {
+                    memoList.remove(i);
+                    System.out.println("삭제되었습니다.");
+                } else {
+                    System.out.println("비밀번호가 틀립니다.");
+                }
+                print(memoInput);
+            }
+        }
+        System.out.println("게시글이 존재하지 않습니다.");
+        print(memoInput);
+    }
+
 }
