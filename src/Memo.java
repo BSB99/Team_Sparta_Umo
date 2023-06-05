@@ -3,6 +3,8 @@ package src;
 import java.time.LocalDateTime;
 
 public class Memo {
+
+
     int contentNumber;
     String name;
     String title;
