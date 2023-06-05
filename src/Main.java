@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         MemoInput memoInput = new MemoInput();
+        Edit edit = new Edit(); // 인스턴스 생성
         print(memoInput);
     }
 
@@ -23,7 +24,8 @@ public class Main {
         hendle(memoInput);
     }
 
-    private static void hendle(MemoInput memoInput) {
+
+    public static void hendle(MemoInput memoInput) {
         Scanner sc = new Scanner(System.in);
         int input = sc.nextInt();
         switch (input){
@@ -96,32 +98,9 @@ public class Main {
                 if(pass == memoInput.getMemos().get(i).passWord){
                     sc.nextLine();
                     //현재 입력된 메모 출력
-                    System.out.println("현재 이름 : "+memoInput.getMemos().get(i).name);
-                    //변경할 내용
-                    System.out.println("변경할 이름 입력");
-                    String name = sc.nextLine();
+                    Edit edit = new Edit();
+                    edit.update(memoInput);
 
-                    System.out.println("현재 제목 : "+memoInput.getMemos().get(i).title);
-                    //변경할 내용
-                    System.out.println("변경할 제목 입력");
-                    String title = sc.nextLine();
-
-                    System.out.println("현재 내용 : "+memoInput.getMemos().get(i).memoContent);
-
-                    //변경할 내용
-                    System.out.println("변경할 내용 입력");
-                    String memoContent = sc.nextLine();
-
-                    //현재 시간
-                    LocalDateTime localDateTime = LocalDateTime.now();
-
-                    //변경할 리스트 데이터 생성
-                    newmMemo = new Memo(memoInput.getMemos().get(i).contentNumber,name, title, memoContent, pass, localDateTime);
-
-                    //set을 이용한 데이터 변경
-                    memoInput.getMemos().set(i, newmMemo);
-
-                    memoListPrint(memoInput);
                 } else{
                     System.out.println("비밀번호가 다릅니다");
                     memoListPrint(memoInput);

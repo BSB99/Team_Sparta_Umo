@@ -6,7 +6,7 @@ import java.util.*;
 
 public class MemoInput {
     //이름, 제목, 내용, 비밀번호를 입력 받아야 한다.
-    private ArrayList<Memo> memos;
+    public ArrayList<Memo> memos;
     private int contentNumber;
     public MemoInput(){
         memos = new ArrayList<>();
@@ -33,6 +33,7 @@ public class MemoInput {
     }
 
     public List<Memo> getMemos() {
+
         return memos;
     }
 }
